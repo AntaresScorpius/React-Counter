@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import {useEffect, useState} from 'react';
+import CounterComponent from './CounterComponent';
 
 function App() {
+  const [count, setCounter] = useState(0);
+
+  useEffect(() => {
+    console.log(count);
+  }, [count]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{margin: '10px'}}>
+      <h1>Counter Using React</h1>
+      <CounterComponent count={count} setCounter={setCounter} />
     </div>
   );
 }
